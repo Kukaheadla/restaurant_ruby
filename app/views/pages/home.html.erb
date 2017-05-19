@@ -1,0 +1,60 @@
+<% if !logged_in? then %>
+  <nav id="hero-nav">
+    <h1 id="title-main"><%= image_tag('restaurant-menu-96.png', id: 'logo-pic' ) %> &nbsp; Banqueteer</h1>
+    <h3>Operate your restaurant under superior effeciency</h3>
+
+    <form action="/" method ="post">
+      <input type="hidden" name="authenticity_token" value="token_value">
+      <p>Sign up Today</p>
+      <label for="company">Restaurant Name:</label>
+      <input type="text" placeholder="e.g. The Delicious Carrot" name="company" style= "width: 150px;">
+      <br>
+      <label for="Email">Email:</label>
+      <input type="email" placeholder="Your main login ID" name="email">
+      <br>
+      <label for="Email">Password:</label>
+      <input type="password" name="password1">
+      <input type="password" placeholder="comfirm passcode" name="password2">
+      <br>
+      <button>submit</button>
+    </form>
+  </nav>
+
+  <a href="/login" id="login-btn">login</a>
+<% end %>
+
+<% if logged_in? then %>
+  <nav id="console-nav">
+    <%=current_user.id %>
+    <p>Welcome Back! <%= current_user.company.capitalize %></p>
+    <%= form_tag '/session', method: :delete do %>
+        <input type="hidden" class="id" data-id=<%= current_user.id%> >
+        <button>Logout</button>
+    <% end %>
+    <br>
+    <a href="/dishes">Add dishes</a>
+    <br>
+    <a href="/list">Dishlist</a>
+    <br>
+    <hr style="width:78px;float:left;">
+    <br>
+    <a href="/tables">Create/Edit tables</a>
+  </nav>
+
+  <div class="tb-collector">
+    <% @tables.each do |t| %>
+     <% if t.user_id == current_user.id%>
+
+       <form action="/tables/<%= t.table_no %>" method="get" name="table-form-<%= t.table_no %>" class="tb-form">
+         <div class="tb-square" onClick="document.forms['table-form-<%= t.table_no %>'].submit();"><%= t.table_no %></div>
+         <input type="hidden" value = '<%= t.table_no %>' name="table_no">
+         <input type="hidden" value = '<%= current_user.id %>' name="current_user">
+       </form>
+       <% if t.table_no % 3 == 0 %>
+         <br>
+       <% end %>
+
+     <% end %>
+   <% end %>
+  </div>
+<%end%>

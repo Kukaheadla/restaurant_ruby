@@ -1,0 +1,124 @@
+* {
+  font-family: source-sans-pro, sans-serif;
+  font-style: normal;
+  font-weight: 300;
+}
+
+html {
+  background: #0cebeb;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #29ffc6, #20e3b2, #0cebeb);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #29ffc6, #20e3b2, #0cebeb); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+.tb-square {
+  min-width: 100px;
+  height: 100px;
+  border: 1px solid black;
+  display: inline-flex;
+  justify-content: center;
+  cursor: pointer;
+  margin-top: 5px;
+  color: white
+}
+
+.tb-square:hover {
+  background-color: grey;
+}
+
+.tb-collector{
+  margin-right: 30px;
+  float: right;
+  min-width: 350px;
+}
+
+.tb-form{
+  display: inline-flex
+}
+
+#console-nav{
+  display: inline-block;
+}
+
+#hero-nav{
+  display: inline-block;
+}
+
+#login-btn{
+  display: flex;
+  justify-content: center;
+  margin-left: 150px;
+}
+
+#logo-pic {
+  width: 50px;
+  display: inline
+}
+#title-main{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button{
+  border: none;
+  cursor: pointer;
+  height: 30px;
+  border-radius: 10px;
+  background-color: #F64747;
+  color: black;
+  margin: 15px;
+  box-shadow: 0 2px #999;
+}
+
+button:active{
+  box-shadow: 0 0px #666;
+  transform: translateY(2px);
+}
+
+button:focus{
+  outline: none;
+}
+
+select {
+  width: 300px;
+  height: 35px;
+  border:none;
+}
+
+select:focus {
+  outline:none;
+}
+
+h1, h2, h3, p, a {
+  color: white;
+}
+
+input {
+  width: 150px;
+  height: 25px;
+  padding-left: 5px;
+  margin-top: 5px;
+  border:none;
+  border-radius: 3px;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+}
+
+.dish-name{
+  display: flex;
+  justify-content: space-between;
+  padding: 6px;
+}
+
+hr {
+  border: 0;
+  height: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgb(255, 255, 255);
+}
+
+.dish-tb-p1{
+  width: 200px;
+}

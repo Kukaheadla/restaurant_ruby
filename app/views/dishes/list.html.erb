@@ -1,0 +1,9 @@
+<% @dishes.each do |d|%>
+  <% if d.user_id == current_user.id%>
+    <h3><b><%= d.name %></b></h3>
+    <p>Price: $<%= d.price %></p>
+    <hr>
+  <% end%>
+<% end %>
+
+<a href="/home">Back</a>

@@ -1,0 +1,5 @@
+<form action="/tables" method="post">
+<input type="number" min="1" placeholder="no. of tables" name="table_num">
+<input type="hidden" value="<%= current_user.id %>" name="user_id">
+<button>create</button>
+</form>

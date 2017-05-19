@@ -1,0 +1,46 @@
+<p>Table No: <%= @table.table_no %></p>
+
+<form action="/tables/<%= @table.table_no%>/paid" method='post'>
+  <button type="submit">Pay $<%= @sum %></button>
+  <input type="hidden" value='<%= @options.join(",") %>' name='paying_orders'>
+</form>
+
+
+<div class="dish-name">
+  <p>Name</p>
+  <p>Quantity</p>
+  <p>Price</p>
+</div>
+
+<% (0..@orders.length-1).each do |i| %>
+  <form action="/tables/<%= @table.table_no %>/tb_dish_delete" method="post">
+    <div class="dish-name">
+      <p class="dish-tb-p1"><%= @orders[i].name %></p>
+      <input type="hidden" name="tb_dish_name" value='<%= @orders[i].name %>'>
+      <p class="dish-tb-p2"> <%= @orders[i].quantity %></p>
+      <p class="dish-tb-p3"> &nbsp;$<%= @orders[i].price %></p>
+    </div>
+    <button style="background-color:yellow">delete</button>
+  </form>
+  <hr>
+<% end %>
+
+<form action="/tables/<%= @table.table_no %>/dish" method="post">
+
+  <%= select_tag(:dish, options_for_select(@options)) %>
+
+  <button>Add Order</button>
+</form>
+
+
+<a href="/home">Back</a>
+<br>
+
+
+<!-- <select name="dish">
+  <#% @dishes.each do |d|%>
+    <#% if d.user_id == current_user.id %>
+      <option value="<#%= d.name %>" name='dish_name'> <#%= d.name %> $<#%= d.price %></option>
+    <#% end%>
+  <#% end %>
+</select> -->

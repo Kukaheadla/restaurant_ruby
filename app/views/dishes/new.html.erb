@@ -1,0 +1,8 @@
+<form action="/dishes" method="post">
+  <input type="text" name="dish" placeholder="dishe name">
+  <input type="decimal" placeholder="$price" name="price">
+  <input type="hidden" value="<%= current_user.id %>" name="user_id">
+  <button>add</button>
+</form>
+
+<a href="/home">Back</a>
