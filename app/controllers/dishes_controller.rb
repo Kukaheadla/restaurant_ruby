@@ -7,6 +7,8 @@ class DishesController < ApplicationController
     @dish.name = params[:dish]
     @dish.price = params[:price]
     @dish.user_id =params[:user_id]
+    @dish.quantity = nil
+
     if @dish.save
       redirect_to '/home'
     else
